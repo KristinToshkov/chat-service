@@ -32,17 +32,18 @@ public class MessageController {
     }
 
     @PostMapping
-    public ResponseEntity<String> saveChatMessage(@RequestParam String text, @RequestParam UUID author) {
-        if (text == null || author == null) {
+    public ResponseEntity<String> saveChatMessage(@RequestBody Message message) {
+        log.info("Saving message:" + message.getId() + " " + message.getMessage() + " " + message.getAuthor() + " " + message.getSentAt());
+        if (message.getMessage() == null || message.getAuthor() == null) {
             return ResponseEntity.badRequest().body("Invalid message data");
         }
-        log.info("Received message");
-        Message message = new Message();
-        message.setText(text);
-        message.setAuthor(author);
+        log.info("Received message from " + message.getAuthor());
+
         messageService.save(message);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Saved a new message!");
     }
+
+
 
 }

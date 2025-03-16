@@ -25,9 +25,9 @@ public class Message {
     @Column(nullable = false)
     private LocalDateTime sentAt;
 
-    private String text;
+    private String message;
 
     @Column(nullable = false)
-    private UUID author;
+    private String author;
 }
 

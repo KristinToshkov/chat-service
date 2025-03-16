@@ -9,6 +9,7 @@ import app.repository.MessageRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class MessageService {
@@ -21,10 +22,12 @@ public class MessageService {
 
     public List<Message> getChatMessages() {
         LocalDateTime now = LocalDateTime.now();
-        return messageRepository.findBySentAtAfter(now.minusHours(24));
+        return messageRepository.findBySentAtAfterOrderBySentAtAsc(now.minusHours(24));
     }
 
     public void save(Message message) {
+        UUID uuid = UUID.randomUUID();
+        message.setId(uuid);
         messageRepository.save(message);
     }
 }

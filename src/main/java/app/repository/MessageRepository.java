@@ -12,5 +12,5 @@ import java.util.UUID;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, UUID> {
 
-    List<Message> findBySentAtAfter(LocalDateTime sentAt);
+    List<Message> findBySentAtAfterOrderBySentAtAsc(LocalDateTime sentAt);
 }
