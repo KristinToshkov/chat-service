@@ -1,7 +1,7 @@
-package repository;
+package app.repository;
 
 
-import model.Message;
+import app.model.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

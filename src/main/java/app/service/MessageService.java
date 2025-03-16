@@ -1,11 +1,11 @@
-package service;
+package app.service;
 
 
-import model.Message;
+import app.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
-import repository.MessageRepository;
+import app.repository.MessageRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
